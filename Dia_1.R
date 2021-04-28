@@ -27,15 +27,22 @@ library(tidyverse)
 #### 1) transformando um data.frame em um tibble
 
 iris
+head(iris)
 as_tibble(iris)
 
 #### 2) a partir de vetores individuais
+
+tiblle1 = tibble(
+  x=1:5,
+  y=1,
+  z=x^2+y
+)
 
 tibble(
   x=1:5,
   y=1,
   z=x^2+y
-)
+) -> tiblle2
 
 # ---------
 # PRINCIPAIS FUNÇÕES:
@@ -48,8 +55,10 @@ tibble(
 #### group_by(): agrupa classes
 
 starwars #base de dados do pacote {dplyr} com informações dos personagens de Star Wars
+View(starwars)
 
-starwars %>% View()
+starwars %>% 
+  View()
 
 ## filter(): Filtrando a base de dados starwars para personagens com mais de 160 cm de altura ou olhos azuis
 
@@ -60,7 +69,7 @@ starwars %>%
 ## arrange(): Ordenando a  base de dados starwars pelo peso e desempate por maior ano de nascimento
 
 starwars %>%
-  arrange(height, -mass)
+  arrange(-height, -mass)
 
 ## select(): Selecionando somente as variáveis name e hair_color da  base de dados starwars
 
@@ -70,7 +79,9 @@ starwars %>%
 ## mutate(): Criando a variável "Pes" que é uma transformação da height de cm para pés
 
 starwars %>%
-  mutate(Pes = height*0.0328084)
+  mutate(Pes = height*0.0328084,
+         Teste = height+30) %>% 
+  select(name,height, Pes, Teste)
 
 ## summarise(): Contando a quantidade de espécies distintas possui base de dados starwars
 
@@ -81,7 +92,8 @@ starwars %>%
 
 starwars %>% 
   group_by(gender) %>%
-  summarise(Media = mean(height))
+  summarise(Media = mean(height, na.rm = TRUE),
+            Media2 = mean(mass, na.rm = TRUE))
 
 # ---------
 # CONCATENANDO OBJETOS
