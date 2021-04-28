@@ -157,7 +157,7 @@ ggplot(midwest, aes(x=area,y=poptotal)) +
 
 #### ordenação
 
-ggplot(midwest, aes(x=reorder(state,area),y=area)) +
+ggplot(midwest, aes(x=reorder(county,area),y=area)) +
   geom_col()
 
 ggplot(midwest, aes(x=reorder(state,-area),y=area)) +
