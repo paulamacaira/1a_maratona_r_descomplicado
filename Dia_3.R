@@ -25,7 +25,7 @@ x >= y # retorna TRUE para os maiores ou iguais e FALSE para os menores
 x <= y # retorna TRUE para os menores ou iguais e FALSE para os maiores
 
 #-----------
-# função which
+# which
 
 ## A função which funciona como se fosse uma pergunta: Quais?
 
@@ -52,7 +52,7 @@ nrow(quakes[which(quakes$depth > 670), ])/nrow(quakes) * 100
 quakes[which(quakes$depth > 650 & quakes$long <= 180), ]
 
 #-----------
-# funções aggregate e by
+# aggregate, by
 
 # As funções aggregate e by podem ser utilizadas para aplicar
 # uma função em todas as colunas de uma tabela
@@ -71,7 +71,7 @@ aggregate(. ~ Species, data = iris, summary)
 by(iris, iris$Species, summary)
 
 #-----------
-# if else
+# if and else
 
 # Uma declaração if else em programação é uma instrução
 # condicional que executa um conjunto diferente de declarações,
@@ -94,7 +94,7 @@ if (x == 1) {
 ifelse(x == 1, "VERDADE", "MENTIRA")
 
 #-----------
-# for while
+# for, while
 
 # Em programação, um loop é uma sequência de instruções que
 # são continuamente repetidas até que uma determinada condição seja alcançada
@@ -112,6 +112,17 @@ while (a < 3) {
   d = d + 20
   print(d)
 }
+
+#-----------
+# apply
+
+# A família apply() é preenchida com funções para manipular 
+# matrizes, arrays, listas e data frames de maneira repetitiva
+
+matriz = matrix(1:10,nrow=5)
+apply(matriz, 2, mean)
+apply(matriz, 1, mean)
+apply(matriz, 1, summary)
 
 #-----------
 # Criando funções
@@ -167,3 +178,19 @@ calculo.min = function(x) {
 }
 valores = c(-1000:150)
 calculo.min(valores)
+
+fahrenheit_to_celsius = function(temp_F) {
+  temp_C = (temp_F - 32) * 5 / 9
+  return(temp_C)
+}
+
+fahrenheit_to_celsius(32)
+fahrenheit_to_celsius(212)
+
+display = function(a = 1, b = 2, c = 3) {
+  result = c(a, b, c)
+  names(result) = c("a", "b", "c") 
+  return(result)
+}
+display()
+display(a=25)
