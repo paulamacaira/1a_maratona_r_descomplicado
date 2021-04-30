@@ -1,5 +1,6 @@
-# 1a_maratona_r_descomplicado
-Códigos utilizados nas lives da 1ª Maratona do R Descomplicado
+# 1ª Maratona do R Descomplicado
+
+Códigos utilizados nas lives da 1ª Maratona do R Descomplicado (@programando_em_r)
 
 Dia 1: manipulação de dados com o {tidyverse}
 
