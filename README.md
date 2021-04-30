@@ -2,8 +2,11 @@
 Códigos utilizados nas lives da 1ª Maratona do R Descomplicado
 
 Dia 1: manipulação de dados com o {tidyverse}
+
 Dia 2: gráficos com o {ggplot2}
+
 Dia 3: criando sua própria função
+
 Dia 4: relatórios com o {RMarkdown}
 
 Se inscreva em: https://sites.google.com/view/paulamacaira/r-descomplicado
